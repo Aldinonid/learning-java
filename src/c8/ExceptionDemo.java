@@ -1,7 +1,14 @@
 package c8;
 
+import java.util.ArrayList;
+import java.util.List;
+
 class ParentQ {
 	void talk() {
+		
+	}
+	
+	void show() throws ClassNotFoundException {
 		
 	}
 }
@@ -11,6 +18,11 @@ class ChildQ extends ParentQ {
 	void talk() throws ArrayIndexOutOfBoundsException {
 		System.out.println("ChildQ talk()");
 		throw new ArrayIndexOutOfBoundsException("Tidak bisa bro");
+	}
+	
+	@Override
+	void show() throws ClassNotFoundException {
+		
 	}
 }
 
@@ -29,5 +41,10 @@ public class ExceptionDemo {
 			// codes that always execute
 			System.out.println("Done execute");
 		}
+	}
+	
+	public static void arrayAndCollections() {
+		List<Integer> list = new ArrayList<>();
+		list.add(1);
 	}
 }

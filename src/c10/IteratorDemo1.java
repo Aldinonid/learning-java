@@ -22,18 +22,18 @@ public class IteratorDemo1 {
 		c.add(4);
 		
 		// 1. remove through iterator.remove() - most recommended, most safe way for removal
-//		Iterator<String> it = c.iterator();
-//		while (it.hasNext()) {
-//			String element = it.next();
-//			if (element.equals("java")) {
-//				it.remove();
-//			}
-//		}
-//		System.out.println(c);
+		Iterator<Integer> it = c.iterator();
+		while (it.hasNext()) {
+			Integer element = it.next();
+			if (element.equals(3)) {
+				it.remove();
+			}
+		}
+		System.out.println(c);
 		
 		// 2. index-based removal
-//		c.remove(2);
-//		System.out.println(c);
+		c.remove(2);
+		System.out.println(c);
 		
 		// 3. value(object)-based removal
 		c.remove(3); // why it works? why remove() accepts a String, because it takes it as a String object.
@@ -51,10 +51,21 @@ public class IteratorDemo1 {
 		c.add("javaee");
 		
 		// 1. Iterator
-		
+		Iterator<String> it = c.iterator();
+        while (it.hasNext()) {
+            System.out.println(it.next());
+        }
 		
 		// 2. Enhance for-loop
+        for (String string : c) {
+            System.out.println(string);
+        }
+        
 		// 3. lamda expression
+        c.forEach(string -> System.out.println(string));
+        c.forEach(System.out::println);
+
+        
 		// 4. standard for-loop
 		for (int i = 0; i < c.size(); i++) {
 			String string = c.get(i);
@@ -62,7 +73,13 @@ public class IteratorDemo1 {
 		}
 		
 		// 5. ListIterator
-		ListIterator listIt = c.listIterator();
+		ListIterator<String> listIt = c.listIterator();
+		while (listIt.hasNext()) {
+		    System.out.println(listIt.next());
+		}
+		while (listIt.hasPrevious()) {
+		    System.out.println(listIt);
+		}
 	}
 	
 	static void iteratorIntro() {
